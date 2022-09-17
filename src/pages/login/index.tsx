@@ -1,13 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
 
-import { GetServerSideProps, InferGetServerSidePropsType } from 'next';
-import { useRouter } from 'next/router';
-import { ReactElement, useEffect, useState } from 'react';
-
-import { Container, CssBaseline, Avatar, Typography, TextField, Button, Box } from '@material-ui/core'
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined'
-import CircularProgress from '@material-ui/core/CircularProgress'
-
 import ALink from '~/components/ALink';
 
 const LoginPage = () => {
