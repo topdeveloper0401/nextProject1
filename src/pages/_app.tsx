@@ -1,13 +1,16 @@
 import 'tailwindcss/tailwind.css'
-import '~/styles/globals.css'
+import '../styles/globals.css'
 
 import React from 'react'
 import { AppProps } from 'next/app'
 import Head from 'next/head'
 import { DefaultSeo } from 'next-seo'
-
 import SEO from '../../next-seo.config'
+import "@fortawesome/fontawesome-svg-core/styles.css"; // import Font Awesome CSS
+
 import { MessageProvider } from '~/lib/message'
+
+import FullLayout from '../components/Layout'
 
 function MyApp({ Component, pageProps }: AppProps) {
   const pageMeta = (Component as any)?.defaultProps?.meta || {}
@@ -20,7 +23,9 @@ function MyApp({ Component, pageProps }: AppProps) {
       </Head>
       <DefaultSeo {...pageSEO} />
       <MessageProvider>
-        <Component {...pageProps} />
+        <FullLayout>
+          <Component {...pageProps} />
+        </FullLayout>
       </MessageProvider>
     </React.Fragment>
   )

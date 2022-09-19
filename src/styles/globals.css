@@ -1,9 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer components {
+  .btn {
+      @apply transition ease-in-out
+  }
+
+  .btn-primary {
+      @apply  text-black bg-primary-100 hover:bg-white border-2 border-primary-100 hover:bg-primary-200 
+  }
+
+  .btn-primary-outline {
+      @apply bg-transparent hover:bg-brand-primary border-2 border-black dark:border-white hover:text-white dark:hover:border-brand-primary  hover:border-transparent
+  }
+  .btn-yellow {
+      @apply bg-brand-accent hover:bg-white border-2 border-brand-accent  hover:border-black
+  }
+  .btn-rounded-full {
+    @apply rounded-full
+  }
+}
+body {
+  font-family: Muli, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"
+}
+
+.btn {
+  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
+  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1)
+}
+
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
 a {
@@ -17,15 +52,19 @@ a {
 
 @font-face {
   font-family: 'Varela Round';
+
   font-style: normal;
+
   font-weight: 100 900;
+
   font-display: optional;
+
   src: url(/fonts/VarelaRound-Regular.woff2) format('woff2');
+
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
     U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
     U+FEFF, U+FFFD;
 }
-
 
 .main {
   min-height: 100vh;
@@ -34,33 +73,49 @@ a {
   background-position: left center, right center;
 }
 
+ol, ul {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+  color: #00b8c9;
+}
+
+a, button {
+  transition: all .3s ease;
+}
+
 .login-wrapper {
   max-width: 512px;
   flex: 1;
   padding: 62px 56px 42px;
   box-shadow: rgb(0 0 0 / 10%) 0px 4px 30px;
 }
+
 form {
   margin-top: 48px;
 }
+
 .border-custom {
   border-color: #cccccc;
 }
+
 .forgot-text {
   margin-top: 10px;
-    color: #707070;
-    font-size: 12px;
-    cursor: pointer;
-    text-decoration: underline;
+  color: #707070;
+  font-size: 12px;
+  cursor: pointer;
+  text-decoration: underline;
 }
+
 .forgot-text:hover{
   text-decoration: none;
 }
+
 .continue-button {
   display: flex;
-  -webkit-box-align: center;
   align-items: center;
-  -webkit-box-pack: center;
   justify-content: center;
   flex-direction: row;
   height: 56px;
@@ -73,29 +128,31 @@ form {
   width: 100%;
   transition: all .3s;
 }
+
 .continue-button span {
   font-size: 0.9rem;
   font-weight: 600;
 }
+
 .continue-button:hover {
   background: rgb(252, 206, 0);
   color: rgb(37, 37, 37);
 }
+
 .divider {
   margin: 32px auto;
   width: 80%;
   color: #707070;
   font-weight: 400;
 }
+
 .button-small {
   padding: 16px;
   height: 44px;
   border-radius: 24px;
   text-transform: uppercase;
   display: flex;
-  -webkit-box-align: center;
   align-items: center;
-  -webkit-box-pack: center;
   justify-content: center;
   background: rgb(252, 234, 129);
   color: rgb(37, 37, 37);
@@ -105,11 +162,13 @@ form {
   border-radius: 24px;
   background-color: rgb(255, 255, 255);
 }
+
 .button-small > img{
   margin-right: 8px;
   margin-bottom: 4px;
   height: 22px;
 }
+
 .button-small span {
   font-family: Muli, sans-serif;
   font-size: 14px;
@@ -117,9 +176,11 @@ form {
   line-height: 14px;
   text-transform: capitalize;
 }
+
 .apple-button {
   margin-left: 24px;
 }
+
 .footer-text {
   align-items: center;
   color: rgb(112, 112, 112);
@@ -128,4 +189,138 @@ form {
   font-size: 14px;
   font-weight: 400;
   line-height: 17.57px;
+}
+
+.sidebar .sidebar-content {
+  height: calc(100% - 48px);
+}
+
+#__next {
+  display: grid;
+  height: 100vh;
+  grid-template:
+      "banner" auto
+      "sidebar-layout" minmax(0px, 1fr) / 1fr;
+}
+.sidebar-content::-webkit-scrollbar {
+  width: 0;
+}
+
+
+
+
+
+
+.table {
+  width: 100%;
+  margin-bottom: 1rem;
+  color: #212529;
+  text-align: center;
+}
+.tableborderd {
+  border: 1px solid #dee2e6;
+}
+
+
+.table-bordered thead td, .table-bordered thead th {
+  border-bottom-width: 2px;
+  }
+  
+element.style {
+}
+.table-bordered thead td, .table-bordered thead th {
+  border-bottom-width: 2px;
+}
+.table thead th {
+  vertical-align: bottom;
+  border-bottom: 2px solid #dee2e6;
+}
+.table-bordered td, .table-bordered th {
+  border: 1px solid #dee2e6;
+}
+.table td, .table th {
+  padding: 0.7rem;
+  vertical-align: top;
+  border-top: 1px solid #dee2e6;
+}
+.table label {
+  display: inline-block;
+  margin-bottom: 0.5rem;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+  background-color: rgba(0,0,0,.05);
+}
+.table-striped tbody tr:nth-of-type(odd) {
+  background-color: rgba(0,0,0,.05);
+}
+.table-striped tbody tr:nth-of-type(odd) {
+  background-color: rgba(0,0,0,.05);
+}
+
+.table .sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0;
+}
+.form-control {
+  display: block;
+  width: 100%;
+  height: calc(1.5em + 0.75rem + 2px);
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+.table label {
+  display: inline-block;
+  margin-bottom: 0.5rem;
+}
+
+.pagination {
+  display: flex;
+  padding-left: 0;
+  list-style: none;
+  border-radius: 0.25rem;
+}
+.page-link {
+  position: relative;
+  display: block;
+  padding: 0.5rem 0.75rem;
+  margin-left: -1px;
+  line-height: 1.25;
+  color: #252525;
+  background-color: #fcea81;
+  border: 1px solid #fef5c0;
+}
+.page-item:first-child .page-link {
+  margin-left: 0;
+  border-top-left-radius: 0.25rem;
+  border-bottom-left-radius: 0.25rem;
+}
+.page-item:last-child .page-link {
+  border-top-right-radius: 0.25rem;
+  border-bottom-right-radius: 0.25rem;
+}
+.search-label .form-control {
+  display: inline-block;
+}
+.react-bs-table-sizePerPage-dropdown {
+  display: none !important;
+}
+.react-bootstrap-table-pagination-list {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
 }

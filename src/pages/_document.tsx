@@ -58,7 +58,7 @@ class MyDocument extends Document {
           <meta content="#ffffff" name="msapplication-TileColor" />
           <meta content="/browserconfig.xml" name="msapplication-config" />
         </Head>
-        <body className="font-sans antialiased">
+        <body className="font-muli antialiased">
           <Main />
           <NextScript />
         </body>

@@ -2,6 +2,8 @@ import { Fragment, FunctionComponent } from 'react'
 import classNames from 'classnames'
 import Header from './Header'
 import Footer from './Footer'
+import Notification from './Notification'
+import Sidebar from './sidebar'
 import { MessageList, useMessage } from '~/lib/message'
 
 type LayoutProps = {
@@ -17,18 +19,17 @@ const FullLayout: FunctionComponent<LayoutProps> = ({
   const { messages } = useMessage()
   return (
     <Fragment>
-      <Header />
-      <main
-        className={classNames(
-          'w-full h-screen mx-auto relative',
-          usePadding && 'px-2 sm:px-6 lg:px-8',
-          useBackdrop && 'bg-gray-200'
-        )}
-      >
-        <MessageList messages={messages} />
-        {children}
-      </main>
-      <Footer />
+      <Notification />
+      <div className='relative flex'>
+        <Sidebar />
+        <div className='h-full bg-gray-400 overflow-auto flex-1'>
+          <main className='h-100'>
+            <MessageList messages={messages} />
+            {children}
+          </main>
+          <Footer />
+        </div>
+      </div>
     </Fragment>
   )
 }

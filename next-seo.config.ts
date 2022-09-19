@@ -1,5 +1,5 @@
-const title = 'Next.js Starter Kit'
-const description = 'Next.js with brilliant bells and useful whistles'
+const title = 'Nomo'
+const description = 'app.nomo.es'
 
 const SEO = {
   title,
