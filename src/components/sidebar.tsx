@@ -93,7 +93,7 @@ const Sidebar: FunctionComponent = () =>
                     <li className={classes.item}>
                         <ALink
                             href="/expenses"
-                            className={classes.itemLink + classes.itemLinkEffect}
+                            className={classes.itemLink + classes.itemLinkEffect + 'text-dark tracking-wide bg-gray-200 rounded-lg'}
                         >
                             <FontAwesomeIcon
                                 icon={faArrowTrendDown}
