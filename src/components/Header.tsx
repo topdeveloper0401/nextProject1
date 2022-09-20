@@ -7,14 +7,14 @@ import {
 import ALink from '~/components/features/ALink';
 
 const Header: FunctionComponent = ({
-  children
+  children, title
 }: {
   children: ReactChildren,
   title: String
 }) => {
   return (
     <header className="border-b border-solid border-gray-100 pt-5 pl-6 pr-8 top-0 w-full bg-white flex justify-between">
-      <span className='font-bold leading-[25.1px] mr-4 text-xl'>Expenses</span>
+      <span className='font-bold leading-[25.1px] mr-4 text-xl'>{title}</span>
       <div className='flex items-center pb-6'>
       <ALink
           href="/balance"

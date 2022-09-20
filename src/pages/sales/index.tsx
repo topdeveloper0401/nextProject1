@@ -3,7 +3,7 @@ import React ,{useState} from "react";
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-    faArrowTrendDown, faClock, faPlus
+    faArrowTrendUp, faClock, faPlus
   } from "@fortawesome/free-solid-svg-icons";
 import 'react-tabs/style/react-tabs.css';
 
@@ -14,16 +14,16 @@ const Index = ({}) => {
 
     return (
         <>
-            <Header title="Expenses"/>
+            <Header title="Sales"/>
             <div className='flex flex-col max-w-[1230px] px-6 mx-auto'>
-                <h2 className="py-4 px-6 leading-5 h-12 text-dark border-b-2 font-bold border-dark mt-5 inline-block w-max">Expenses</h2>
+                <h2 className="py-4 px-6 leading-5 h-12 text-dark border-b-2 font-bold border-dark mt-5 inline-block w-max">Sales</h2>
                 <div className="border-b border-gray-100 mb-10"></div>
                 <div className="flex p-6 mb-4 justify-between bg-white border border-solid border-gray-100 rounded-lg">
                     <div className="flex items-center">
                         <div className="flex items-center">
                             <div className="h-12 w-12 rounded-lg flex items-center justify-center bg-primary-300">
                                 <FontAwesomeIcon
-                                    icon={faArrowTrendDown}
+                                    icon={faArrowTrendUp}
                                     style={{ fontSize: 22, color: "black" }}
                                 />
                             </div>
@@ -50,7 +50,7 @@ const Index = ({}) => {
                             icon={faPlus}
                             style={{ fontSize: 20, color: "black", marginRight: 8 }}
                         />
-                        <span className="font-bold text-sm leading-[14px] uppercase">Create Expense</span>
+                        <span className="font-bold text-sm leading-[14px] uppercase">Create Sale</span>
                     </button>
                 </div>
                 <Table />

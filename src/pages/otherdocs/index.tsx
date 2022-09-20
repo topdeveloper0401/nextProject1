@@ -3,7 +3,7 @@ import React ,{useState} from "react";
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-    faArrowTrendDown, faClock, faPlus
+    faFileCircleExclamation, faFileCircleCheck, faPlus
   } from "@fortawesome/free-solid-svg-icons";
 import 'react-tabs/style/react-tabs.css';
 
@@ -14,34 +14,32 @@ const Index = ({}) => {
 
     return (
         <>
-            <Header title="Expenses"/>
+            <Header title="Other Documents"/>
             <div className='flex flex-col max-w-[1230px] px-6 mx-auto'>
-                <h2 className="py-4 px-6 leading-5 h-12 text-dark border-b-2 font-bold border-dark mt-5 inline-block w-max">Expenses</h2>
-                <div className="border-b border-gray-100 mb-10"></div>
-                <div className="flex p-6 mb-4 justify-between bg-white border border-solid border-gray-100 rounded-lg">
+                <div className="flex p-6 mb-4 justify-between bg-white border border-solid border-gray-100 rounded-lg mt-8">
                     <div className="flex items-center">
                         <div className="flex items-center">
-                            <div className="h-12 w-12 rounded-lg flex items-center justify-center bg-primary-300">
+                            <div className="h-12 w-12 rounded-lg flex items-center justify-center bg-gray-200">
                                 <FontAwesomeIcon
-                                    icon={faArrowTrendDown}
+                                    icon={faFileCircleExclamation}
                                     style={{ fontSize: 22, color: "black" }}
                                 />
                             </div>
                             <div className="flex items-start flex-col justify-start mr-10 ml-4">
-                                <span className="text-xl font-bold leading-[25.1px] mb-[2px]">1.908,00 €</span>
-                                <span className="text-gray-300">Spent</span>
+                                <span className="text-xl font-bold leading-[25.1px] mb-[2px]">0 documents</span>
+                                <span className="text-gray-300">0 converted into invoices</span>
                             </div>
                         </div>
                         <div className="flex items-center ml-4">
-                            <div className="h-12 w-12 rounded-lg flex items-center justify-center bg-primary-400">
+                            <div className="h-12 w-12 rounded-lg flex items-center justify-center bg-gray-200">
                                 <FontAwesomeIcon
-                                    icon={faClock}
+                                    icon={faFileCircleCheck}
                                     style={{ fontSize: 22, color: "black" }}
                                 />
                             </div>
                             <div className="flex items-start flex-col justify-start mr-10 ml-4">
-                                <span className="text-xl font-bold leading-[25.1px] mb-[2px]">877,00 €</span>
-                                <span className="text-gray-300">Pending</span>
+                                <span className="text-xl font-bold leading-[25.1px] mb-[2px]">0,00 € quoted</span>
+                                <span className="text-gray-300">0,00 € have been invoiced</span>
                             </div>
                         </div>
                     </div>
@@ -50,10 +48,16 @@ const Index = ({}) => {
                             icon={faPlus}
                             style={{ fontSize: 20, color: "black", marginRight: 8 }}
                         />
-                        <span className="font-bold text-sm leading-[14px] uppercase">Create Expense</span>
+                        <span className="font-bold text-sm leading-[14px] uppercase">Create Document</span>
                     </button>
                 </div>
-                <Table />
+                <div className="flex flex-col items-center my-20">
+                    <img src="/images/nofound.png" alt="PNG" width={120} height={80}></img>
+                    <p className="mt-6 font-bold text-2xl leading-6">
+                        You have not yet added any<br/>
+                        <mark>documents during this year</mark>
+                    </p>
+                </div>
             </div>
         </>
     );

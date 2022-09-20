@@ -27,6 +27,19 @@ module.exports = {
           300: '#707070',
           400: '#fafafa',
         },
+        blue: {
+          100: '#e8fbfd',
+          200: '#00b8c9'
+        },
+        pink: {
+          100: '#ffe1e1'
+        },
+        green: {
+          100: '#1dd292'
+        },
+        purple: {
+          100: '#cc98fa'
+        },
         dark: '#252525'
       },
   },

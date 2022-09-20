@@ -162,45 +162,18 @@ const Sidebar: FunctionComponent = () =>
                             <span className='relative'>Accountancy</span>
                         </ALink>
                     </li>
-                        <SlideToggle collapsed>
-                        {({ toggle, range, setCollapsibleElement }) => (
-                        <li className={classNames(classes.item, range == true? 'bg-gray-400':'')}>
-                            <div className={classNames("my-collapsible")}>
-                                <button className={"my-collapsible__toggle hover:tracking-wide hover:text-dark" + classes.itemLink} onClick={toggle}>
-                                    <FontAwesomeIcon
-                                        icon={faUser}
-                                        style={{ fontSize: 22, color: "#252525", marginRight: 18 }}
-                                    />
-                                    Account
-                                    <FontAwesomeIcon
-                                        icon={range == true ? faAngleUp : faAngleDown}
-                                        style={{ fontSize: 15, color: "#252525", marginLeft: 25 }}
-                                    />
-                                </button>
-                                <div className="my-collapsible__content" ref={setCollapsibleElement}>
-                                    <ALink
-                                        href="/account/business"
-                                        className={classes.itemLink + classes.itemLinkEffect}
-                                    >
-                                        <span className='relative ml-10'>Business</span>
-                                    </ALink>
-                                    <ALink
-                                        href="/account/subscription"
-                                        className={classes.itemLink + classes.itemLinkEffect}
-                                    >
-                                        <span className='relative ml-10'>Subscription</span>
-                                    </ALink>
-                                    <ALink
-                                        href="/account/community/"
-                                        className={classes.itemLink + classes.itemLinkEffect}
-                                    >
-                                        <span className='relative ml-10'>Community</span>
-                                    </ALink>
-                                </div>
-                            </div>
-                        </li>
-                        )}
-                        </SlideToggle>
+                    <li className={classes.item}>
+                        <ALink
+                            href="/account"
+                            className={classes.itemLink + classes.itemLinkEffect}
+                        >
+                            <FontAwesomeIcon
+                                icon={faUser}
+                                style={{ fontSize: 22, color: "#252525", marginRight: 18 }}
+                            />
+                            <span className='relative'>Account</span>
+                        </ALink>
+                    </li>
                     <li className={classes.item}>
                         <ALink
                             href="/resultado"

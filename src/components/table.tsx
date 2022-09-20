@@ -3,6 +3,10 @@ import BootstrapTable from "react-bootstrap-table-next";
 import filterFactory, { textFilter } from "react-bootstrap-table2-filter";
 import ToolkitProvider, { Search } from "react-bootstrap-table2-toolkit";
 import paginationFactory from "react-bootstrap-table2-paginator";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+    faListDots
+  } from "@fortawesome/free-solid-svg-icons";
 
 
 const { SearchBar } = Search;
@@ -24,16 +28,21 @@ const ClearButton = props => {
   );
 };
 
-class Table extends React.Component {
-    linkFollow = (cell, row, rowIndex, formatExtraData) => {
-        return (
-          <button
-          >
-            Follow
-          </button>
-        );
-      };
-  columns = [
+const Table = ({}) => {
+  function editExpenses(data:any) {
+    console.log(data);
+  }
+  const linkFollow = (cell, row, rowIndex, formatExtraData) => {
+      return (
+        <button className="btn py-1 px-2 hover:bg-primary-100 rounded-lg" onClick={()=>editExpenses(row)}>
+          <FontAwesomeIcon
+              icon={faListDots}
+              style={{ fontSize: 14, color: "black" }}
+          />
+        </button>
+      );
+    };
+  const columns = [
     {
       dataField: "date",
       text: "Date",
@@ -97,19 +106,18 @@ class Table extends React.Component {
       {
         dataField: "",
         text: "",
-        formatter: this.linkFollow,
+        formatter: linkFollow,
         sort: true
       }
   ];
-s
-  clearAllFilter() {
+  function clearAllFilter() {
     nameFilter("");
     priceFilter("");
     originFilter("");
     stockFilter("");
   }
 
-  products = [
+  const products = [
     {
       date: '09-2022',
       docType: 'PAYSLIP',
@@ -220,49 +228,47 @@ s
       }
   ];
 
-  render() {
-    return (
-      <div className="text-right">
-        <ToolkitProvider
-          bootstrap4
-          keyField="name"
-          data={this.products}
-          columns={this.columns}
-          search
-          insertRow
-          exportCSV
-        >
-          {props => (
-            <div>
-              <SearchBar
-                {...props.searchProps}
-                style={{ width: "200px", height: "40px", marginLeft:'auto' }}
-              />
-              <ClearButton
-                {...props.searchProps}
-                clearAllFilter={this.clearAllFilter}
-              />
-              <button className="btn btn-primary leading-none rounded-lg p-2 m-1 h-10">
-                Import
-              </button>
-              <button className="btn btn-primary leading-none rounded-lg p-2 m-1 h-10">
-                Export
-              </button>
-              <BootstrapTable
-                {...props.baseProps}
-                filter={filterFactory()}
-                noDataIndication="There is no solution"
-                striped
-                hover
-                condensed
-                pagination={paginationFactory({ sizePerPage: 4 })}
-              />
-            </div>
-          )}
-        </ToolkitProvider>
-      </div>
-    );
-  }
+  return (
+    <div className="text-right">
+      <ToolkitProvider
+        bootstrap4
+        keyField="name"
+        data={products}
+        columns={columns}
+        search
+        insertRow
+        exportCSV
+      >
+        {props => (
+          <div>
+            <SearchBar
+              {...props.searchProps}
+              style={{ width: "200px", height: "40px", marginLeft:'auto' }}
+            />
+            <ClearButton
+              {...props.searchProps}
+              clearAllFilter={clearAllFilter}
+            />
+            <button className="btn btn-primary leading-none rounded-lg p-2 m-1 h-10">
+              Import
+            </button>
+            <button className="btn btn-primary leading-none rounded-lg p-2 m-1 h-10">
+              Export
+            </button>
+            <BootstrapTable
+              {...props.baseProps}
+              filter={filterFactory()}
+              noDataIndication="There is no solution"
+              striped
+              hover
+              condensed
+              pagination={paginationFactory({ sizePerPage: 4 })}
+            />
+          </div>
+        )}
+      </ToolkitProvider>
+    </div>
+  );
 }
 
 export default Table;
