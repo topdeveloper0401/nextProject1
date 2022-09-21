@@ -13,7 +13,6 @@ type IndexPageServerSideProps = {
 
 const IndexPage: NextPage<NextAppPageProps> = ({ meta }) => {
   return (
-    <div>
       <div className={styles.container}>
         <main className={styles.main}>
           <h1 className="w-full flex flex-col place-items-center text-6xl gap-2">
@@ -70,7 +69,6 @@ const IndexPage: NextPage<NextAppPageProps> = ({ meta }) => {
           </a>
         </footer>
       </div>
-    </div>
   )
 }
 
