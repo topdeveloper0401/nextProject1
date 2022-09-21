@@ -18,9 +18,9 @@ const Index = ({}) => {
             <div className='flex flex-col max-w-[1230px] px-6 mx-auto'>
                 <h2 className="py-4 px-6 leading-5 h-12 text-dark border-b-2 font-bold border-dark mt-5 inline-block w-max">Expenses</h2>
                 <div className="border-b border-gray-100 mb-10"></div>
-                <div className="flex p-6 mb-4 justify-between bg-white border border-solid border-gray-100 rounded-lg">
+                <div className="flex flex-wrap px-6 py-2 justify-between bg-white border border-solid border-gray-100 rounded-lg">
                     <div className="flex items-center">
-                        <div className="flex items-center">
+                        <div className="flex items-center  my-4">
                             <div className="h-12 w-12 rounded-lg flex items-center justify-center bg-primary-300">
                                 <FontAwesomeIcon
                                     icon={faArrowTrendDown}
@@ -32,7 +32,7 @@ const Index = ({}) => {
                                 <span className="text-gray-300">Spent</span>
                             </div>
                         </div>
-                        <div className="flex items-center ml-4">
+                        <div className="flex items-center ml-4 my-4">
                             <div className="h-12 w-12 rounded-lg flex items-center justify-center bg-primary-400">
                                 <FontAwesomeIcon
                                     icon={faClock}
@@ -44,8 +44,8 @@ const Index = ({}) => {
                                 <span className="text-gray-300">Pending</span>
                             </div>
                         </div>
-                    </div>
-                    <button className="btn btn-primary rounded-full flex items-center h-14 px-8 rounded-7">
+                </div>
+                    <button className="btn btn-primary rounded-full  my-4 flex items-center h-14 px-8 rounded-7">
                         <FontAwesomeIcon
                             icon={faPlus}
                             style={{ fontSize: 20, color: "black", marginRight: 8 }}

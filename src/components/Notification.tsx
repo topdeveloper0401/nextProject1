@@ -18,7 +18,7 @@ const Notification: FunctionComponent = ({
             />
             <p>
                 <span className='font-medium'>You have 9 trial days left. </span>
-                1 month at 50%. Use the code HOLASEPTIEMBRE for the monthly subscription mode
+                <span className='lg:inline hidden'>1 month at 50%. Use the code HOLASEPTIEMBRE for the monthly subscription mode</span>
             </p>
         </div>
         <button className='btn flex items-center uppercase text-sm font-bold rounded-full leading-3 px-4 py-1 border-solid border-black border-2 font-muli h-8'>

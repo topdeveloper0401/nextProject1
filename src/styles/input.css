@@ -70,13 +70,6 @@ a, button {
   transition: all .3s ease;
 }
 
-input  {
-  outline: 0 !important;
-  border: none;
-}
-input:focus {
-  @apply border-primary-100
-}
 
 .login-wrapper {
   max-width: 512px;
@@ -197,46 +190,32 @@ form {
   margin-bottom: 1rem;
   color: #212529;
   text-align: center;
+  border: 1px solid #dee2e6;
+  border-radius: .5rem;
 }
 .tableborderd {
   border: 1px solid #dee2e6;
 }
 
 
-.table-bordered thead td, .table-bordered thead th {
-  border-bottom-width: 2px;
-  }
-  
-element.style {
-}
-.table-bordered thead td, .table-bordered thead th {
-  border-bottom-width: 2px;
-}
 .table thead th {
   vertical-align: bottom;
-  border-bottom: 2px solid #dee2e6;
-}
-.table-bordered td, .table-bordered th {
-  border: 1px solid #dee2e6;
+  border-bottom: 1px solid #dee2e6;
 }
 .table td, .table th {
-  padding: 0.7rem;
+  padding: 0.5rem 0.7rem;
   vertical-align: top;
-  border-top: 1px solid #dee2e6;
+}
+.table td {
+  border-bottom: 1px solid #dee2e6;
 }
 .table label {
   display: inline-block;
   margin-bottom: 0.5rem;
 }
 
-.table-striped tbody tr:nth-of-type(odd) {
-  background-color: rgba(0,0,0,.05);
-}
-.table-striped tbody tr:nth-of-type(odd) {
-  background-color: rgba(0,0,0,.05);
-}
-.table-striped tbody tr:nth-of-type(odd) {
-  background-color: rgba(0,0,0,.05);
+.table-striped tbody tr {
+  background-color: #fff;
 }
 
 .table .sr-only {
@@ -315,4 +294,18 @@ element.style {
 mark {
   background-image: linear-gradient(180deg, transparent 50%,#fcea81 0);
   background-color: transparent
+}
+.react-datepicker__input-container {
+  margin-top: .1rem;
+}
+.react-datepicker__input-container input {
+  border: 0;
+  border-radius: .5rem;
+  background-color: #ebebeb;
+  max-width: 7rem;
+  height: 2rem;
+  cursor: pointer;
+}
+.scroll-content::-webkit-scrollbar {
+  width: 0;
 }

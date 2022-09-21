@@ -2,39 +2,41 @@
 import React ,{useState} from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-    faArrowTrendDown, faArrowTrendUp, faChartLine, faClock, faRefresh
+    faChartSimple, faArrowTrendUp, faChartLine, faClock, faRefresh, faArrowTrendDown
   } from "@fortawesome/free-solid-svg-icons";
 
 import 'chart.js/auto';
-import {Bar, Pie, Doughnut} from 'react-chartjs-2';
+import {Line, Doughnut} from 'react-chartjs-2';
 
 
 import Header from '~/components/Header';
 
-const data1 = {
-    labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-    datasets: [{
-      label: '# of Votes',
-      data: [12, 19, 3, 5, 2, 3],
-      backgroundColor: [
-        'rgba(255, 99, 132, 0.2)',
-        'rgba(54, 162, 235, 0.2)',
-        'rgba(255, 206, 86, 0.2)',
-        'rgba(75, 192, 192, 0.2)',
-        'rgba(153, 102, 255, 0.2)',
-        'rgba(255, 159, 64, 0.2)'
-      ],
-      borderColor: [
-        'rgba(255, 99, 132, 1)',
-        'rgba(54, 162, 235, 1)',
-        'rgba(255, 206, 86, 1)',
-        'rgba(75, 192, 192, 1)',
-        'rgba(153, 102, 255, 1)',
-        'rgba(255, 159, 64, 1)'
-      ],
-      borderWidth: 1
-    }]
-  }
+const lineData = {
+    labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+    datasets: [
+      {
+        label: 'My First dataset',
+        fill: false,
+        lineTension: 0.6,
+        backgroundColor: '#252525',
+        borderColor: '#252525', 
+        borderCapStyle: 'butt',
+        borderDash: [],
+        borderDashOffset: 0.0,
+        borderJoinStyle: 'bevel',
+        pointBorderColor: '#252525',
+        pointBackgroundColor: ' #fff',
+        pointBorderWidth: 10,
+        pointHoverRadius: 5,
+        pointHoverBackgroundColor: '#252525',
+        pointHoverBorderColor: 'rgba(220,220,220,1)',
+        pointHoverBorderWidth: 2,
+        pointRadius: 1,
+        pointHitRadius: 10,
+        data: [65, 59, 80, 81, 56, 55, 40]
+      }
+    ]
+  };
 const dotData = {
 labels: [
     'Red',
@@ -61,12 +63,12 @@ const Index = ({}) => {
     return (
         <>
             <Header title="Balance"/>
-            <div className='flex flex-col max-w-[1230px] px-6 mx-auto'>
-                <div className="grid grid-cols-3 gap-6 mt-10">
+            <div className='flex flex-col max-w-[1230px] px-6 mx-auto mt-4'>
+                <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-6 mt-10 mb-4">
                     <div className="flex items-center py-8 px-8 bg-white border border-solid border-gray-200 rounded-lg box-shadow">
                         <div className="h-12 w-12 rounded-lg flex items-center justify-center bg-gray-200">
                             <FontAwesomeIcon
-                                icon={faChartLine}
+                                icon={faChartSimple}
                                 style={{ fontSize: 22, color: "black" }}
                             />
                         </div>
@@ -90,7 +92,7 @@ const Index = ({}) => {
                     <div className="flex items-center py-8 px-8 bg-white border border-solid border-gray-200 rounded-lg box-shadow">
                         <div className="h-12 w-12 rounded-lg flex items-center justify-center bg-primary-100">
                             <FontAwesomeIcon
-                                icon={faArrowTrendUp}
+                                icon={faArrowTrendDown}
                                 style={{ fontSize: 22, color: "black" }}
                             />
                         </div>
@@ -100,18 +102,15 @@ const Index = ({}) => {
                         </div>
                     </div>      
                 </div>
-                <div className="p-4 bg-white box-shadow rounded-lg mt-8">
-                    <Bar
-                        data={data1}
+                <div className="p-4 bg-white box-shadow rounded-lg mt-4">
+                    <Line
+                        data={lineData}
                         width={400}
-                        height={200}
-                        options={{
-                            maintainAspectRatio: false
-                        }}
+                        height={100}
                     />
                 </div>
-                <div className="grid grid-cols-3 gap-6 mb-10">
-                    <div className="col-span-2 p-4  bg-white box-shadow rounded-lg mt-8">
+                <div className="grid lg:grid-cols-3 gap-6 mb-10">
+                    <div className="lg:col-span-2 p-4  bg-white box-shadow rounded-lg mt-8">
                         <h3 className="text-2xl font-semibold mt-4">120,00 €</h3>
                         <h6 className="text-md text-gray-300 mt-4">Total</h6>
                         <div className="border border-solid border-primary-200 h-6 w-full bg-primary-300 rounded-lg mt-4 mb-10"></div>

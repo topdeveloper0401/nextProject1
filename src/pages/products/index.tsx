@@ -16,9 +16,9 @@ const Index = ({}) => {
         <>
             <Header title="Products"/>
             <div className='flex flex-col max-w-[1230px] px-6 mx-auto'>
-                <div className="flex p-6 mb-4 justify-between bg-white border border-solid border-gray-100 rounded-lg mt-8">
-                    <div className="flex items-center">
-                        <div className="flex items-center">
+                <div className="flex flex-wrap px-6 py-2 mb-4 justify-between bg-white border border-solid border-gray-100 rounded-lg mt-8">
+                    <div className="flex flex-wrap items-center">
+                        <div className="flex items-center mr-4 my-4">
                             <div className="relative h-12 w-12 rounded-lg flex items-center justify-center bg-gray-200">
                                 <FontAwesomeIcon
                                     icon={faSquarePen}
@@ -31,7 +31,7 @@ const Index = ({}) => {
                                 <span className="text-gray-300">2 products and services</span>
                             </div>
                         </div>
-                        <div className="flex items-center ml-4">
+                        <div className="flex items-center my-4">
                             <div className="relative h-12 w-12 rounded-lg flex items-center justify-center bg-gray-200">
                                 <FontAwesomeIcon
                                     icon={faSquarePen}
@@ -45,7 +45,7 @@ const Index = ({}) => {
                             </div>
                         </div>
                     </div>
-                    <button className="btn btn-primary rounded-full flex items-center h-14 px-8 rounded-7">
+                    <button className="btn btn-primary rounded-full flex items-center h-14 px-8 rounded-7 my-4">
                         <FontAwesomeIcon
                             icon={faPlus}
                             style={{ fontSize: 20, color: "black", marginRight: 8 }}

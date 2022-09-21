@@ -2,21 +2,25 @@ import classNames from 'classnames'
 import { FunctionComponent, useState } from 'react'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-    faPlusCircle, faParagraph, faAngleDown, faAngleUp, faGem, faChartSimple, faSquare, faArrowTrendUp, faArrowTrendDown, faCircleInfo, faCalendarCheck, faAddressBook, faBuildingColumns, faUser,faSuitcase, faCircleQuestion, faS
+    faPlusCircle, faTableCells, faBox, faBook, faAngleDown, faAngleUp, faGem, faChartSimple, faSquare, faArrowTrendUp, faArrowTrendDown, faCircleInfo, faCalendarCheck, faAddressBook, faBuildingColumns, faUser,faSuitcase, faCircleQuestion, faS
   } from "@fortawesome/free-solid-svg-icons";
 
 import ALink from '~/components/features/ALink';
 import SlideToggle from "react-slide-toggle";
-import { FaAddressBook } from 'react-icons/fa';
+import { useRouter } from 'next/router'
 
 const classes = {
     item: ' px-[9.5px] mb-1 ',
     itemLink: ' relative px-3 w-full h-10 flex items-center text-left text-gray-300 ',
-    itemLinkEffect: ' hover:text-dark hover:tracking-wide hover:bg-gray-200 hover:rounded-lg '
+    itemLinkEffect: ' hover:text-dark hover:tracking-wide hover:bg-gray-200 hover:rounded-lg ',
+    activeEffect: ' text-dark tracking-wide bg-gray-200 rounded-lg '
 }
 
 const Sidebar: FunctionComponent = () => 
 {
+const router = useRouter()
+const path = router.asPath;
+console.log(path);
   return (
     <div className='sidebar relative w-[11.25rem] bg-white border-r-[0.0625rem] text-center border-solid border-gray-100 h-full transition-all duration-500 ease'>
         <div className='sidebar-content relative w-full overflow-y-scroll'>
@@ -36,7 +40,7 @@ const Sidebar: FunctionComponent = () =>
                     <li className={classes.item}>
                         <ALink
                             href="/balance"
-                            className={classes.itemLink + classes.itemLinkEffect}
+                            className={classes.itemLink + classes.itemLinkEffect + (path == '/balance' ? classes.activeEffect: '')}
                         >
                             <FontAwesomeIcon
                                 icon={faChartSimple}
@@ -49,9 +53,9 @@ const Sidebar: FunctionComponent = () =>
                         {({ toggle, range, setCollapsibleElement }) => (
                         <li className={classNames(classes.item, range == true? 'bg-gray-400':'')}>
                             <div className={classNames("my-collapsible")}>
-                                <button className={"my-collapsible__toggle hover:tracking-wide hover:text-dark" + classes.itemLink} onClick={toggle}>
+                                <button className={"my-collapsible__toggle hover:tracking-wide hover:text-dark" + classes.itemLink + (path == '/scanner/sales' ? 'tracking-wide text-dark': '') + (path == '/scanner/expenses' ? 'tracking-wide text-dark': '')} onClick={toggle}>
                                     <FontAwesomeIcon
-                                        icon={faSquare}
+                                        icon={faTableCells}
                                         style={{ fontSize: 22, color: "#252525", marginRight: 18 }}
                                     />
                                     Scanner
@@ -60,16 +64,16 @@ const Sidebar: FunctionComponent = () =>
                                         style={{ fontSize: 15, color: "#252525", marginLeft: 25 }}
                                     />
                                 </button>
-                                <div className="my-collapsible__content" ref={setCollapsibleElement}>
+                                <div className="my-collapsible__content my-1" ref={setCollapsibleElement}>
                                     <ALink
                                         href="/scanner/sales"
-                                        className={classes.itemLink + classes.itemLinkEffect}
+                                        className={classes.itemLink + classes.itemLinkEffect + 'mb-1' + (path == '/scanner/sales' ? classes.activeEffect: '')}
                                     >
                                         <span className='relative ml-10'>Sales</span>
                                     </ALink>
                                     <ALink
                                         href="/scanner/expenses"
-                                        className={classes.itemLink + classes.itemLinkEffect}
+                                        className={classes.itemLink + classes.itemLinkEffect + 'mb-1' + (path == '/scanner/expenses' ? classes.activeEffect: '')}
                                     >
                                         <span className='relative ml-10'>Expenses</span>
                                     </ALink>
@@ -81,7 +85,7 @@ const Sidebar: FunctionComponent = () =>
                     <li className={classes.item}>
                         <ALink
                             href="/sales"
-                            className={classes.itemLink + classes.itemLinkEffect}
+                            className={classes.itemLink + classes.itemLinkEffect + (path == '/sales' ? classes.activeEffect: '')}
                         >
                             <FontAwesomeIcon
                                 icon={faArrowTrendUp}
@@ -93,7 +97,7 @@ const Sidebar: FunctionComponent = () =>
                     <li className={classes.item}>
                         <ALink
                             href="/expenses"
-                            className={classes.itemLink + classes.itemLinkEffect + 'text-dark tracking-wide bg-gray-200 rounded-lg'}
+                            className={classes.itemLink + classes.itemLinkEffect + (path == '/expenses' ? classes.activeEffect: '')}
                         >
                             <FontAwesomeIcon
                                 icon={faArrowTrendDown}
@@ -105,22 +109,22 @@ const Sidebar: FunctionComponent = () =>
                     <li className={classes.item}>
                         <ALink
                             href="/otherdocs"
-                            className={classes.itemLink + classes.itemLinkEffect}
+                            className={classes.itemLink + classes.itemLinkEffect + (path == '/otherdocs' ? classes.activeEffect: '')}
                         >
                             <FontAwesomeIcon
-                                icon={faCircleInfo}
+                                icon={faBook}
                                 style={{ fontSize: 22, color: "#252525", marginRight: 18 }}
                             />
                             <span className='relative'>Other docs</span>
-                        </ALink>
+                        </ALink>    
                     </li>
                     <li className={classes.item}>
                         <ALink
                             href="/products"
-                            className={classes.itemLink + classes.itemLinkEffect}
+                            className={classes.itemLink + classes.itemLinkEffect + (path == '/products' ? classes.activeEffect: '')}
                         >
                             <FontAwesomeIcon
-                                icon={faParagraph}
+                                icon={faBox}
                                 style={{ fontSize: 22, color: "#252525", marginRight: 18 }}
                             />
                             <span className='relative'>Proudcts</span>
@@ -129,7 +133,7 @@ const Sidebar: FunctionComponent = () =>
                     <li className={classes.item}>
                         <ALink
                             href="/contacts"
-                            className={classes.itemLink + classes.itemLinkEffect}
+                            className={classes.itemLink + classes.itemLinkEffect + (path == '/contacts' ? classes.activeEffect: '')}
                         >
                             <FontAwesomeIcon
                                 icon={faAddressBook}
@@ -153,7 +157,7 @@ const Sidebar: FunctionComponent = () =>
                     <li className={classes.item}>
                         <ALink
                             href="/accountancy"
-                            className={classes.itemLink + classes.itemLinkEffect}
+                            className={classes.itemLink + classes.itemLinkEffect+ (path == '/accountancy' ? classes.activeEffect: '')}
                         >
                             <FontAwesomeIcon
                                 icon={faSuitcase}
@@ -165,25 +169,13 @@ const Sidebar: FunctionComponent = () =>
                     <li className={classes.item}>
                         <ALink
                             href="/account"
-                            className={classes.itemLink + classes.itemLinkEffect}
+                            className={classes.itemLink + classes.itemLinkEffect + (path == '/account' ? classes.activeEffect: '')}
                         >
                             <FontAwesomeIcon
                                 icon={faUser}
                                 style={{ fontSize: 22, color: "#252525", marginRight: 18 }}
                             />
                             <span className='relative'>Account</span>
-                        </ALink>
-                    </li>
-                    <li className={classes.item}>
-                        <ALink
-                            href="/resultado"
-                            className={classes.itemLink + classes.itemLinkEffect}
-                        >
-                            <FontAwesomeIcon
-                                icon={faCircleQuestion}
-                                style={{ fontSize: 22, color: "#252525", marginRight: 18 }}
-                            />
-                            <span className='relative'>Help</span>
                         </ALink>
                     </li>
                 </ul>
